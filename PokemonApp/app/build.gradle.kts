@@ -75,6 +75,7 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     implementation(libs.converter.moshi)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
