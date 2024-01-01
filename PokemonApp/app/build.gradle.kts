@@ -3,6 +3,11 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dagger.hilt.library)
     kotlin("kapt")
+    alias(libs.plugins.devtools.ksp)
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 android {
@@ -32,11 +37,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -74,29 +79,29 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
 
+    ksp(libs.hilt.compiler)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+
+    implementation(libs.navigation.compose)
+
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.converter.moshi)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
-    implementation(libs.navigation.compose)
-
-    implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.kotlinx.coroutines.core)
-
-    kapt(libs.hilt.compiler)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.hilt.navigation.compose)
-    implementation(libs.hilt.android)
-
     implementation(libs.coil)
 
     implementation(libs.timber)
 
     implementation(libs.palette)
+
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
 }
 
-kapt{
-    correctErrorTypes = true
-}
+//kapt{
+//    correctErrorTypes = true
+//}
