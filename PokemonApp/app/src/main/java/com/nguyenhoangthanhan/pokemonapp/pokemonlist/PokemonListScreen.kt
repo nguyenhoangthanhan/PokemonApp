@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
@@ -37,12 +36,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.BrushPainter
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -55,6 +52,7 @@ import coil.compose.AsyncImage
 import com.nguyenhoangthanhan.pokemonapp.R
 import com.nguyenhoangthanhan.pokemonapp.data.models.PokedexListEntry
 import com.nguyenhoangthanhan.pokemonapp.ui.theme.RobotoCondensed
+import kotlin.random.Random
 
 @Composable
 fun PokemonListScreen(
@@ -208,8 +206,11 @@ fun PokedexEntry(
     viewModel: PokemonListViewModel = hiltViewModel()
 ) {
     val defaultDominantColor = MaterialTheme.colorScheme.surface
-    var dominantColor by remember {
-        mutableStateOf(defaultDominantColor)
+    val rnd = Random
+    val color: Int =
+        android.graphics.Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+    val dominantColor by remember {
+        mutableStateOf(Color(color))
     }
 
     Box(
