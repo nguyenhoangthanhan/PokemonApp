@@ -27,6 +27,7 @@ devtools-ksp = "1.9.10-1.0.13"
 opencsv = "5.5.2"
 coil = "2.2.0"
 accompanist-coil = "0.15.0"
+accompanist-coil2 = "0.7.0"
 retrofit = "2.9.0"
 okhttp = "4.11.0"
 logging-interceptor = "4.8.1"
@@ -105,7 +106,7 @@ opencsv = { group = "com.opencsv", name = "opencsv", version.ref = "opencsv" }
 
 #Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-accompanist-coil = { group = "com.google.accompanist", name = "accompanist-coil", version.ref = "accompanist-coil" }
+accompanist-coil = { group = "com.google.accompanist", name = "accompanist-coil", version.ref = "accompanist-coil2" }
 
 #retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }

@@ -93,6 +93,7 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.coil)
+    implementation(libs.accompanist.coil)
 
     implementation(libs.timber)
 
